@@ -10,22 +10,19 @@ import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class JamOrderDto{
-    @JsonProperty("id")
-    private UUID id = null;
-
-    @JsonProperty("version")
-    private Integer version = null;
-
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
-    @JsonProperty("createdDate")
-    private OffsetDateTime createdDate = null;
-
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
-    @JsonProperty("lastModifiedDate")
-    private OffsetDateTime lastModifiedDate = null;
+@EqualsAndHashCode(callSuper = true)
+public class JamOrderDto extends BaseItem{
+    @Builder
+    public JamOrderDto(UUID id, Integer version, OffsetDateTime createdDate, OffsetDateTime lastModifiedDate,
+                       UUID customerId, List<JamOrderLineDto> jamOrderLines,
+                        OrderStatusEnum orderStatus, String orderStatusCallbackUrl, String customerRef) {
+        super(id, version, createdDate, lastModifiedDate);
+        this.customerId = customerId;
+        this.jamOrderLines = jamOrderLines;
+        this.orderStatus = orderStatus;
+        this.orderStatusCallbackUrl = orderStatusCallbackUrl;
+        this.customerRef = customerRef;
+    }
 
     private UUID customerId;
     private String customerRef;
