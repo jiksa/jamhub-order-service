@@ -71,7 +71,8 @@ public class JamOrderServiceImpl implements JamOrderService{
 
             JamOrder savedJamOrder = jamOrderRepository.saveAndFlush(jamOrder);
 
-            log.debug("Saved Jam Order: " + jamOrder.getId());
+            log.info("Customer Id: "+customerId +"\n");
+            log.info("Saved Jam Order: " + jamOrder.getId());
 
             //todo impl
             //  publisher.publishEvent(new NewJamOrderEvent(savedJamOrder));

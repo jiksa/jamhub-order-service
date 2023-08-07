@@ -9,7 +9,7 @@ import sage.springcoder.jamhuborderservice.web.model.JamOrderPagedList;
 
 import java.util.UUID;
 
-@RequestMapping("(api/v1/customers/{customerId}/")
+@RequestMapping("api/v1/customers/{customerId}/")
 @RestController
 public class JamOrderController {
 

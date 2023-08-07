@@ -12,6 +12,7 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class JamOrder extends BaseEntity{
         super(id, version, createdDate, lastModifiedDate);
         this.customerRef = customerRef;
         this.customer = customer;
-        this.jamOrderLines = jamOrderLines;
+        this.jamOrderLines = (jamOrderLines != null) ? jamOrderLines : new HashSet<>();;
         this.orderStatus = orderStatus;
         this.orderStatusCallbackUrl = orderStatusCallbackUrl;
     }
