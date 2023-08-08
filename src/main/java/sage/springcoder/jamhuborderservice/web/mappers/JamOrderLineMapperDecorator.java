@@ -31,6 +31,7 @@ public abstract class JamOrderLineMapperDecorator implements JamOrderLineMapper{
             orderLineDto.setJamName(jamDto.getJamName());
             orderLineDto.setUpc(jamDto.getUpc());
             //orderLineDto.setPrice and set jamflavor to implement
+            orderLineDto.setJamId(jamDto.getJamId());
         });
         return orderLineDto;
     }
